@@ -27,10 +27,22 @@ export function FormAddImage({ closeModal }: FormAddImageProps): JSX.Element {
       // TODO REQUIRED, LESS THAN 10 MB AND ACCEPTED FORMATS VALIDATIONS
     },
     title: {
-      // TODO REQUIRED, MIN AND MAX LENGTH VALIDATIONS
+      required: 'Você deve informar um título',
+      minLength: {
+        value: 2,
+        message: 'O título deverá conter no mínimo 2 caracteres',
+      },
+      maxLength: {
+        value: 20,
+        message: 'O título deverá conter no máximo 20 caracteres',
+      },
     },
     description: {
-      // TODO REQUIRED, MAX LENGTH VALIDATIONS
+      required: 'Você deve informar a descrição',
+      maxLength: {
+        value: 20,
+        message: 'A descrição deverá possuir no máximo 20 caracteres',
+      },
     },
   };
 
