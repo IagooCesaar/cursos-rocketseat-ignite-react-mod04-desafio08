@@ -104,7 +104,7 @@ export function FormAddImage({ closeModal }: FormAddImageProps): JSX.Element {
           isClosable: true,
         });
       }
-      // TODO EXECUTE ASYNC MUTATION
+      await mutation.mutateAsync(data);
       // TODO SHOW SUCCESS TOAST
     } catch (error) {
       toast({
