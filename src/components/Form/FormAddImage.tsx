@@ -24,7 +24,20 @@ export function FormAddImage({ closeModal }: FormAddImageProps): JSX.Element {
 
   const formValidations = {
     image: {
-      // TODO REQUIRED, LESS THAN 10 MB AND ACCEPTED FORMATS VALIDATIONS
+      // // TODO REQUIRED, LESS THAN 10 MB AND ACCEPTED FORMATS VALIDATIONS
+      required: 'Imagem obrigatória',
+      validate: {
+        lessThen10MB: (fileList: FileList) => {
+          if (fileList.length > 0) {
+            const maxSize = 10 * 100 * 100; // 10 MB
+            return (
+              fileList[0].size <= maxSize ||
+              'O arquivo deverá possuir no máximo 10MB'
+            );
+          }
+          return true;
+        },
+      },
     },
     title: {
       required: 'Você deve informar um título',
@@ -79,8 +92,8 @@ export function FormAddImage({ closeModal }: FormAddImageProps): JSX.Element {
           setLocalImageUrl={setLocalImageUrl}
           setError={setError}
           trigger={trigger}
-          // TODO SEND IMAGE ERRORS
-          // TODO REGISTER IMAGE INPUT WITH VALIDATIONS
+          error={errors.image}
+          {...register('image', formValidations.image)}
         />
 
         <TextInput
