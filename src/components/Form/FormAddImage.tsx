@@ -105,7 +105,13 @@ export function FormAddImage({ closeModal }: FormAddImageProps): JSX.Element {
         });
       }
       await mutation.mutateAsync(data);
-      // TODO SHOW SUCCESS TOAST
+      toast({
+        title: 'Imagem cadastrada',
+        description: 'Sua nova imagem foi cadastrada com sucesso!',
+        status: 'success',
+        duration: 5000,
+        isClosable: true,
+      });
     } catch (error) {
       toast({
         title: 'Erro ao cadastrar nova imagem',
