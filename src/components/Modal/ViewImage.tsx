@@ -30,10 +30,23 @@ export function ModalViewImage({
         h="auto"
         maxW="900px"
         maxH="600px"
+        bg="transparent"
       >
-        <Link as="a" href={imgUrl} isExternal>
-          <Image src={imgUrl} maxW="900px" maxH="600px" />
-        </Link>
+        <ModalBody p="0">
+          <Link as="a" href={imgUrl} isExternal>
+            <Image src={imgUrl} maxW="900px" maxH="600px" />
+          </Link>
+        </ModalBody>
+        <ModalFooter
+          align="flex-start"
+          h="12"
+          bg="gray.800"
+          borderBottomRadius="12"
+        >
+          <Link as="a" href={imgUrl} isExternal mr="auto">
+            Abrir original
+          </Link>
+        </ModalFooter>
       </ModalContent>
     </Modal>
   );
