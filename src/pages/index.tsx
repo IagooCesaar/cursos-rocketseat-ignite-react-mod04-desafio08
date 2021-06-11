@@ -13,15 +13,11 @@ interface ImagesQueryResponse {
     id: string;
   };
   data: {
-    data: {
-      title: string;
-      description: string;
-      url: string;
-    };
+    title: string;
+    description: string;
+    url: string;
     ts: number;
-    ref: {
-      id: string;
-    };
+    id: string;
   }[];
 }
 
@@ -56,19 +52,22 @@ export default function Home(): JSX.Element {
 
   const formattedData = useMemo(() => {
     const cards: Card[] = [];
-    data?.pages.forEach(page => {
-      page.data.forEach(item => {
-        const card = {} as Card;
-        Object.assign(card, {
-          id: item.ref.id,
-          title: item.data.title,
-          description: item.data.description,
-          ts: item.ts,
-          url: item.data.url,
-        } as Card);
-        cards.push(card);
+    if (data) {
+      data.pages.forEach(page => {
+        page.data.forEach(item => {
+          console.log(item);
+          const card = {} as Card;
+          Object.assign(card, {
+            id: item.id,
+            title: item.title,
+            description: item.description,
+            ts: item.ts,
+            url: item.url,
+          } as Card);
+          cards.push(card);
+        });
       });
-    });
+    }
     return cards;
   }, [data]);
 
