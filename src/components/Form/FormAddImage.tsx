@@ -97,8 +97,14 @@ export function FormAddImage({ closeModal }: FormAddImageProps): JSX.Element {
       // TODO SHOW ERROR TOAST IF IMAGE URL DOES NOT EXISTS
       // TODO EXECUTE ASYNC MUTATION
       // TODO SHOW SUCCESS TOAST
-    } catch {
-      // TODO SHOW ERROR TOAST IF SUBMIT FAILED
+    } catch (error) {
+      toast({
+        title: 'Erro ao cadastrar nova imagem',
+        description: `Ocorreu um erro ao cadastrar uma nova imagem: ${error.message}`,
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
     } finally {
       // TODO CLEAN FORM, STATES AND CLOSE MODAL
     }
