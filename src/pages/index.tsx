@@ -29,7 +29,7 @@ interface Card {
   id: string;
 }
 
-async function getImages({ pageParam = 0 }): Promise<ImagesQueryResponse> {
+async function getImages({ pageParam = null }): Promise<ImagesQueryResponse> {
   const response = await api.get<ImagesQueryResponse>('/api/images', {
     params: {
       after: pageParam,
