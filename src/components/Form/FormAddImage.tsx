@@ -94,7 +94,16 @@ export function FormAddImage({ closeModal }: FormAddImageProps): JSX.Element {
 
   const onSubmit = async (data: Record<string, unknown>): Promise<void> => {
     try {
-      // TODO SHOW ERROR TOAST IF IMAGE URL DOES NOT EXISTS
+      if (!imageUrl) {
+        toast({
+          title: 'Imagem ainda não carregada',
+          description:
+            'Você precisar aguardar o término do procedimento de envio da imagem',
+          status: 'error',
+          duration: 5000,
+          isClosable: true,
+        });
+      }
       // TODO EXECUTE ASYNC MUTATION
       // TODO SHOW SUCCESS TOAST
     } catch (error) {
