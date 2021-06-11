@@ -15,7 +15,7 @@ type AddNewImageFormData = {
   image: string;
   title: string;
   description: string;
-}
+};
 
 export function FormAddImage({ closeModal }: FormAddImageProps): JSX.Element {
   const [imageUrl, setImageUrl] = useState('');
