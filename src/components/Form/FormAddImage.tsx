@@ -39,6 +39,16 @@ export function FormAddImage({ closeModal }: FormAddImageProps): JSX.Element {
           }
           return true;
         },
+        acceptedExtensions: (fileList: FileList) => {
+          if (fileList.length > 0) {
+            const regexExtensions = /image\//g;
+            return (
+              regexExtensions.test(fileList[0].type) ||
+              'Apenas arquivos de imagem são permitidos'
+            );
+          }
+          return true;
+        },
       },
     },
     title: {
