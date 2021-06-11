@@ -75,7 +75,9 @@ export function FormAddImage({ closeModal }: FormAddImageProps): JSX.Element {
   const mutation = useMutation(
     // TODO MUTATION API POST REQUEST,
     {
-      // TODO ONSUCCESS MUTATION
+      onSuccess: () => {
+        queryClient.invalidateQueries('images');
+      },
     }
   );
 
