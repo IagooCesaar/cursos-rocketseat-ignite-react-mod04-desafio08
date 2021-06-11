@@ -24,7 +24,7 @@ export function ModalViewImage({
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent>
-        <Link>
+        <Link as="a" href={imgUrl} isExternal>
           <Image src={imgUrl} />
         </Link>
       </ModalContent>
