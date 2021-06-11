@@ -29,7 +29,9 @@ export function FormAddImage({ closeModal }: FormAddImageProps): JSX.Element {
       validate: {
         lessThen10MB: (fileList: FileList) => {
           if (fileList.length > 0) {
-            const maxSize = 10 * 100 * 100; // 10 MB
+            //size is in bytes
+            const maxSize = 1024 * 1024 * 10; // 10 MB
+            console.log('size', fileList[0].size, maxSize);
             return (
               fileList[0].size <= maxSize ||
               'O arquivo deverá possuir no máximo 10MB'
