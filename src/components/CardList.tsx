@@ -1,4 +1,4 @@
-import { SimpleGrid, useDisclosure, useBreakpointValue } from '@chakra-ui/react';
+import { SimpleGrid, useDisclosure } from '@chakra-ui/react';
 import { useState } from 'react';
 import { Card } from './Card';
 import { ModalViewImage } from './Modal/ViewImage';
@@ -25,17 +25,9 @@ export function CardList({ cards }: CardsProps): JSX.Element {
     // modal para visualizar imagem
   }
 
-  const columnsCount = useBreakpointValue({
-    base: 3,
-    sm: 1,
-    md: 2,
-    lg: 3,
-    xl: 4,
-  });
   return (
     <>
-      {/* TODO CARD GRID */}
-      <SimpleGrid columns={columnsCount}>
+      <SimpleGrid columns={3} spacing={10}>
         {cards.map(card => (
           <Card key={card.id} data={card} viewImage={handleViewImage} />
         ))}
